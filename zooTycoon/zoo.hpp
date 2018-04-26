@@ -34,7 +34,6 @@ public:
 	void reduceTigers() { numTigers--; };
 	void reducePenguins() { numPenguins--; };
 	void reduceTurtles() { numTurtles--; };
-//	expandArray(Animal* arr);
 };
 
 #endif
