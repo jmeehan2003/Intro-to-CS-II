@@ -8,7 +8,7 @@ protected:
 	int age;
 	int cost;
 	int numberOfBabies;
-	int baseFoodCost = 200;
+	int baseFoodCost = 50;
 	virtual double payoff() = 0;
 public:
 	int getAge() { return this->age; };

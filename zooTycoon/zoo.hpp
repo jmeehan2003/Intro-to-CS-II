@@ -14,11 +14,10 @@ protected:
 	int numTigers;
 	int numPenguins;
 	int numTurtles;
-//	class Tiger;
-//	class Penguin;
-//	class Turtle;
+
 public:
 	Zoo();
+	~Zoo();
 	Tiger* tarr;
 	Penguin* parr;
 	Turtle* turarr;

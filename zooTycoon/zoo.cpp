@@ -84,4 +84,10 @@ void Zoo::agePenguins() {
 void Zoo::ageTurtles() {
 	for (int i = 0; i < numTurtles; i++)
 		turarr[i].incrementAge();
+}
+
+Zoo::~Zoo() {
+	delete [] tarr;
+	delete [] parr;
+	delete [] turarr;
 }	
