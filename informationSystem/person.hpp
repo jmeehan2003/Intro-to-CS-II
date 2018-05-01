@@ -12,6 +12,7 @@ protected:
 	int age;
 public:
 	Person(){};
+	virtual ~Person(){};
 	int getAge() { return this->age; };
 	std::string getName() { return this->name; };
 	virtual void do_work() { int work = rand() % 120; cout << name << "did " << work << "hours of work." << endl;};

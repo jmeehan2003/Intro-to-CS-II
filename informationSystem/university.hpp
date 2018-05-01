@@ -14,9 +14,10 @@ private:
 	std::vector<Person*> people;	
 public:
 	University() { this->name = "Oregon State University"; };
+	~University();
 	std::string getName() { return name; };
 	void addBuilding(Building &b) { buildings.push_back(b); };
-	void addPerson(Person* p) { people.push_back(p); };
+	void addPerson(Person* p) { Person* q = p; people.push_back(q); };
 	void printBuildings();
 	void printPeople();
 	void printNames();

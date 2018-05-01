@@ -10,7 +10,7 @@ void University::printBuildings() {
 	int size = buildings.size();
 	cout << "Information for all buildings at " << name << endl;
 	for (int i = 0; i < size; i++) {
-		cout << "Details for " << buildings[i].getName() << endl;
+		cout << "Details for            : " << buildings[i].getName() << endl;
 		cout << "Building size (sq ft.) : " << buildings[i].getSize() << endl;	
 		cout << "Address                : " << buildings[i].getAddress() << endl << endl;
 	}
@@ -26,7 +26,7 @@ void University::printPeople() {
 	cout <<  std::string(100, '*') << endl;
 	int size = people.size();
 	for (int i = 0; i < size; i++) {
-		cout << "Details for " << people[i]->getName() << endl;
+		cout << "Details for : " << people[i]->getName() << endl;
 		cout << "Age         : " << people[i]->getAge() << endl;	
 		cout << "Status      : ";
 		people[i]->status();
@@ -65,4 +65,9 @@ void University::printNames() {
 	cin.clear();
 	cin.ignore(256, '\n');
 	cin.get();
+}
+
+University::~University() {
+//	for (size_t i = 4; i < people.size(); i++) 
+//		delete people[i];
 }

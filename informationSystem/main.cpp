@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
+#include <memory>
 #include "person.hpp"
 #include "student.hpp"
 #include "instructor.hpp"
@@ -47,8 +48,9 @@ int main(){
 	OSU.addBuilding(b3);
 	OSU.addBuilding(b5);
 	//** end hard coding ***
-	
+		
 	menu(OSU);
+
 	//OSU.printPeople();
 	//cout << '\n';	
 	//OSU.printBuildings();
@@ -57,6 +59,10 @@ int main(){
 }
 
 void menu(University OSU) {
+	// create shared pointers to keep in scope until function completes in case a person or instructor is created
+	std::shared_ptr<Student> s1;
+	std::shared_ptr<Instructor> i1;
+
 	int val;
 	cout << "Welcome to the Oregon State Information System" << endl << endl;	
 	cout << "1.   Display Building Information" << endl;
@@ -105,7 +111,7 @@ void menu(University OSU) {
 		OSU.addBuilding(newBuild);
 	}
 	else if (val == 5) {
-		Person* pptr;
+		Person *pptr;
 		char response;
 		std::string name;
 		cout << "Would you like to add a student? (y/n)" << endl;
@@ -115,10 +121,14 @@ void menu(University OSU) {
 			cout << "What is the student's name? ";
 			cin.ignore();
 			getline(cin, name);
-			pptr = new Student(name);
+			// create shared pointer
+			std::shared_ptr<Student> shareds1 = std::make_shared<Student>(name);
+			// keep pointer from destructing till function completes (s1 scope is entire function)
+			s1 = shareds1;
+			pptr = &(*s1);	
 			OSU.addPerson(pptr);
-			cout << "Student " << name << " added." << endl;
-		}
+			cout << "Student " << name << " added." << endl;	
+	}
 		else {
 			cout << "Would you like to add an instructor? (y/n)" << endl;
 			cin >> response;
@@ -127,18 +137,23 @@ void menu(University OSU) {
 				cout << "What is the instructor's name? ";
 				cin.ignore();
 				getline(cin,  name);
-				pptr = new Instructor(name);
+				// create shared pointer
+				std::shared_ptr<Instructor> sharedi1 = std::make_shared<Instructor>(name);
+				// keep pointer from destructing until function completes (i1 scope is entire function);
+				i1 = sharedi1;
+				pptr = &(*i1);
 				OSU.addPerson(pptr);
 				cout << "Instructor " << name << " added." << endl;
 			}
 		}
 
 	}
-	else if (val == 6)
+	else if (val == 6){
 		return;
-
-		menu(OSU);
-
+	}
+	
+	menu(OSU);
+	
 
 }
 

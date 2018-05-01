@@ -10,6 +10,7 @@ private:
 	double GPA;
 public:
 	Student();
+	virtual ~Student(){};
 	Student(std::string name);
 	void setGPA(double);
 	double getGPA() { return this->GPA; };
