@@ -4,9 +4,9 @@ CXXFLAGS += -Wall
 CXXFLAGS += -g
 LDFLAGS = -lboost_date_time
 
-OBJS = lab6.o list.o 
+OBJS = linkedlistmain.o list.o 
 
-SRCS = lab6.cpp list.cpp 
+SRCS = linkedlistmain.cpp list.cpp 
 
 HEADERS = list.hpp 
 
