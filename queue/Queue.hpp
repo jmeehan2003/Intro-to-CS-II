@@ -1,5 +1,5 @@
 #ifndef QUEUE_HPP
-
+#define QUEUE_HPP
 
 struct QueueNode {
 	QueueNode* next;
