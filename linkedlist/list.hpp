@@ -1,4 +1,5 @@
 #ifndef LIST_HPP
+#define LIST_HPP
 
 struct Node {
 	int val;
