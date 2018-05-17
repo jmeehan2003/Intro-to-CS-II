@@ -4,9 +4,9 @@ CXXFLAGS += -Wall
 CXXFLAGS += -g
 LDFLAGS = -lboost_date_time
 
-OBJS = lab7.o Queue.o 
+OBJS = QueueMain.o Queue.o 
 
-SRCS = lab7.cpp Queue.cpp 
+SRCS = QueueMain.cpp Queue.cpp 
 
 HEADERS = Queue.hpp 
 
